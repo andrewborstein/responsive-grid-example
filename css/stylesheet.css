@@ -56,15 +56,3 @@ body:before {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
-.example-style .button a {
-  text-align: center;
-  background: white;
-  padding: 1em;
-  text-decoration: none;
-  color: #333;
-}
-
-.example-style .button a:hover {
-  background: #ddd;
-}
