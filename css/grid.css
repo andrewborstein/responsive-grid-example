@@ -19,7 +19,7 @@ html {
 
 /*
  * ----------------------
- * SITE CONTAINER
+ * CONTAINER
  * ----------------------
  */
 
@@ -28,11 +28,11 @@ html {
  * Using a container will make designing for responsive easier!
  */
 .container {
-  max-width: 1140px; /* Main width of your website! Change at your leisure, or use the .container-fluid class instead. */
-  padding: 1em 2em;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px; /* Main width of your website! Change at your leisure, or use the .container-fluid class instead. */
   overflow: auto;
+  padding: 1em 2em;
 }
 .container.fluid {
   max-width: none;
@@ -42,7 +42,7 @@ html {
 
 /*
  * ----------------------
- * STRUCTURE
+ * ROW
  * ----------------------
  */
 
@@ -52,14 +52,25 @@ html {
  * to our row class, which will contain floated column elements.
  */
 .row {
-  margin-right: -1em;
   margin-left: -1em;
+  margin-right: -1em;
 }
 .row:after {
+  clear: both;
   content: " ";
   display: block;
-  clear: both;
 }
+.row + .row {
+  margin-top: 1em;
+}
+
+
+
+/*
+ * ----------------------
+ * COLUMN
+ * ----------------------
+ */
 
 /*
  * Use float to line up our grid elements next to each other.
@@ -68,9 +79,10 @@ html {
 .column {
   float: left;
   padding: 1em;
-  margin-bottom: 1em;
   width: 100%;
 }
+
+
 
 /*
  * ----------------------
@@ -90,9 +102,21 @@ html {
   .column.one-fourth    { width: 25%; }
   .column.one-sixth     { width: 16.666%; }
 
-  /*
-   * Offset a grid element, by (virutally) creating an empty one.
-   */
+}
+
+
+
+/*
+ * ----------------------
+ * COLUMN OFFSET
+ * ----------------------
+ */
+
+/*
+ * Offset a grid element, by (virutally) creating an empty one.
+ */
+ @media (min-width: 769px) {
+
   .column.offset-three-fourths  { margin-left: 75%; }
   .column.offset-two-thirds     { margin-left: 66.666%; }
   .column.offset-one-half       { margin-left: 50%; }
@@ -100,16 +124,6 @@ html {
   .column.offset-one-fourth     { margin-left: 25%; }
   .column.offset-one-sixth      { margin-left: 16.666%; }
 
-}
-
-/*
- * Add as many @media query break points as you like, trying to keep in mind common device screen widths.
- */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Add your custom styles here, which will only display on landscape oriented iPads. */
-}
-@media (max-width: 320px) {
-  /* Add your custom styles here, which will only display on portrait oriented iPhone 4 / 5. */
 }
 
 
@@ -121,21 +135,26 @@ html {
  */
 
 /*
+ * flow-opposite
+ * ----------------------
  * Add .flow-opposite to columns where you want a column on the right on desktop to display first on mobile.
  */
 .column.flow-opposite { float: right; }
 
 /*
+ * no-padding
+ * ----------------------
  * Enable grid without padding between each column by adding '.no-padding' to a '.container' element.
  */
 .no-padding .column {
   padding: 0;
 }
 
-
 /*
+ * no-margin
+ * ----------------------
  * Enable grid without margin below each row by adding '.no-margin' to the '.container'.
  */
-.no-margin .column {
-  margin-bottom: 0;
+.no-margin .row {
+  margin-top: 0;
 }
